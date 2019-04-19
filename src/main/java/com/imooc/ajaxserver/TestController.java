@@ -18,9 +18,16 @@ public class TestController {
         return new ResultBean("postJson " + user.getName());
     }
 
-    @GetMapping("getCookie")
+    @GetMapping("/getCookie")
     private ResultBean getCookie(@CookieValue(value="cookie1") String cookie1){
         System.out.println("TestController.getCookie()");
         return new ResultBean("getCookie " + cookie1);
+    }
+
+    @GetMapping("/getHeader")
+    private ResultBean getHeader(@RequestHeader("x-header1") String header1,
+                                 @RequestHeader("x-header2") String header2) {
+        System.out.println("TestController.getHeader()");
+        return new ResultBean("getHeader" + header1 + header2);
     }
 }
