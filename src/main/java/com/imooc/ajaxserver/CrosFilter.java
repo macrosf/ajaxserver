@@ -16,6 +16,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * @author 2000105922
  */
+//@WebFilter(urlPatterns = "/*", filterName = "crosFilter")
 public class CrosFilter implements Filter {
 	@Override
 	public void init(FilterConfig filterConfig) {
@@ -38,12 +39,12 @@ public class CrosFilter implements Filter {
 
         res.addHeader("Access-Control-Allow-Methods", "GET");
         //预检命令响应头
-		res.addHeader("Access-Control-Allow-Headers", "Content-Type");
+		res.addHeader("Access-Control-Allow-Headers", "Content-Type, x-header1, x-header2");
 		//预检命令缓存响应头
 		res.addHeader("Access-Control-Max-Age", "3600");
 
 		//enable cookie
-		res.addHeader("Access-Control-Allow-Credential", "true");
+		res.addHeader("Access-Control-Allow-Credentials", "true");
         filterChain.doFilter(servletRequest,servletResponse);
     }
 	@Override

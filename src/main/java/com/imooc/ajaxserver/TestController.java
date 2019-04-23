@@ -28,6 +28,6 @@ public class TestController {
     private ResultBean getHeader(@RequestHeader("x-header1") String header1,
                                  @RequestHeader("x-header2") String header2) {
         System.out.println("TestController.getHeader()");
-        return new ResultBean("getHeader" + header1 + header2);
+        return new ResultBean("getHeader " + header1 + " " + header2);
     }
 }

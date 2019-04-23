@@ -6,6 +6,7 @@ import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 
 @SpringBootApplication
+//@ServletComponentScan("com.imooc.ajaxserver.CrosFilter")
 public class AjaxserverApplication {
 
 	public static void main(String[] args) {
