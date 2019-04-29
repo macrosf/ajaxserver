@@ -9,13 +9,14 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class FilterConfig {
-    @Bean
-    public FilterRegistrationBean<CrosFilter> registFilter() {
-        FilterRegistrationBean<CrosFilter> registration = new FilterRegistrationBean<>();
-        registration.setFilter(new CrosFilter());
-        registration.addUrlPatterns("/*");
-        registration.setName("CrosFilter");
-        registration.setOrder(1);
-        return registration;
-    }
+//使用NGINX处理消息头，服务端可以不用FILTER
+//    @Bean
+//    public FilterRegistrationBean<CrosFilter> registFilter() {
+//        FilterRegistrationBean<CrosFilter> registration = new FilterRegistrationBean<>();
+//        registration.setFilter(new CrosFilter());
+//        registration.addUrlPatterns("/*");
+//        registration.setName("CrosFilter");
+//        registration.setOrder(1);
+//        return registration;
+//    }
 }

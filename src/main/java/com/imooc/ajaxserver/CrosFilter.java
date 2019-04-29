@@ -10,6 +10,7 @@ import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
+import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -40,6 +41,17 @@ public class CrosFilter implements Filter {
         res.addHeader("Access-Control-Allow-Methods", "GET");
         //预检命令响应头
 		res.addHeader("Access-Control-Allow-Headers", "Content-Type, x-header1, x-header2");
+
+		//支持自定义响应头
+
+		//写死的自定义消息头
+		//res.addHeader("Access-Control-Allow-Headers", "Content-Type, x-header1, x-header2");
+		//支持所有的自定义头
+		String headers = req.getHeader("Access-Control-Request-Headers");
+		if (!StringUtils.isEmpty(headers)) {
+			res.addHeader("Access-Control-Allow-Headers", headers);
+		}
+
 		//预检命令缓存响应头
 		res.addHeader("Access-Control-Max-Age", "3600");
 
